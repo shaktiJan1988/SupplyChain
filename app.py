@@ -10,7 +10,7 @@ import streamlit.components.v1 as components
 import pandas as pd
 import joblib
 from PIL import Image
-
+import os
 #API_KEY = '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'
 API_KEY = os.getenv("OPENAI_API_KEY")
 # Command stored in a string variable
