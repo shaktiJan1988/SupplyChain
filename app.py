@@ -88,9 +88,9 @@ def decode_response(response: str) -> dict:
 
 st.title("👨‍💻       Supply Chain Analytics")
 image_path = os.path.join(os.path.dirname(__file__), 'AI_Image.jpg')
-image = Image.open(image_path)
+#image = Image.open(image_path)
 #new_image = image.resize((200, 100))
-st.image(image, use_column_width=True)
+#st.image(image, use_column_width=True)
 st.subheader("ChatBot")
 query = st.text_area("Insert your query here")
 if st.button("Submit Query", type="primary"):
