@@ -5,3 +5,4 @@ seaborn
 openai
 streamlit_chat
 scikit-learn
+azure-openai
