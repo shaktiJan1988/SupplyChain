@@ -4,3 +4,4 @@ pandas
 seaborn
 openai
 streamlit_chat
+scikit-learn
