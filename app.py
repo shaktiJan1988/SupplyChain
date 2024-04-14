@@ -87,7 +87,7 @@ def decode_response(response: str) -> dict:
 
 
 st.title("👨‍💻       Supply Chain Analytics")
-image_path = 'Dataset/AI_image.jpg'
+image_path = os.path.join(os.path.dirname(__file__), 'AI_Image.jpg')
 image = Image.open(image_path)
 #new_image = image.resize((200, 100))
 st.image(image, use_column_width=True)
@@ -143,11 +143,11 @@ if st.button("Submit Query", type="primary"):
   elif 'predict_price' in decoded_response:
        required_keys = ["Product type", "Location", "Order quantities", "Manufacturing costs", "Transportation modes"]
        if all(key in decoded_response['predict_price'] for key in required_keys):
-                price_pred_model = joblib.load('Dataset/product_price_model.pkl')
-                le_product_type = joblib.load('Dataset/product_type_encoder.pkl')
-                le_location = joblib.load('Dataset/location_encoder.pkl')
-                le_transportation_mode = joblib.load('Dataset/transportation_mode_encoder.pkl')
-                features= joblib.load('Dataset/price_pred_features.pkl')
+                price_pred_model = joblib.load(os.path.join(os.path.dirname(__file__), 'product_price_model.pkl'))
+                le_product_type = joblib.load(os.path.join(os.path.dirname(__file__), 'product_type_encoder.pkl'))
+                le_location = joblib.load(os.path.join(os.path.dirname(__file__), 'location_encoder.pkl'))
+                le_transportation_mode = joblib.load(os.path.join(os.path.dirname(__file__), 'transportation_mode_encoder.pkl'))
+                features= joblib.load(os.path.join(os.path.dirname(__file__), 'price_pred_features.pkl'))
 # Create a dictionary with the input parameters
                 input_data = {'Product type': (decoded_response['predict_price']['Product type']) ,'Location': (decoded_response['predict_price']['Location']),'Order quantities': (decoded_response['predict_price']['Order quantities']),'Manufacturing costs': (decoded_response['predict_price']['Manufacturing costs']),'Transportation modes': (decoded_response['predict_price']['Transportation modes']),'Shipping costs': (decoded_response['predict_price']['Shipping costs'])}
 
